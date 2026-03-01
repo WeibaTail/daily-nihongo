@@ -1,0 +1,89 @@
+
+        <!DOCTYPE html>
+        <html lang="ja">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <title>每日日文閱讀</title>
+            <style>
+                body { font-family: "Meiryo", "Yu Gothic", sans-serif; line-height: 1.8; padding: 0; padding-top: 60px; background-color: #f0f2f5; color: #333; margin: 0; word-break: break-all; }
+                .nav-bar { position: fixed; top: 0; left: 0; right: 0; height: 50px; background: #2c3e50; color: white; display: flex; align-items: center; justify-content: center; padding: 0 10px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+                .nav-bar input[type="date"] { padding: 5px; border-radius: 5px; border: none; outline: none; margin-left: 5px; font-family: inherit; }
+                .nav-btn { background: #3498db; color: white; border: none; padding: 6px 12px; margin-left: 8px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+                .home-btn { background: #e74c3c; }
+                
+                #content-wrapper { padding: 15px; }
+                .article-container { background: white; max-width: 800px; margin: 0 auto 30px auto; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+                h2 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; margin-top: 0; font-size: 1.4em; line-height: 1.4; }
+                .section-title { font-weight: bold; color: #e67e22; margin-top: 25px; margin-bottom: 10px; font-size: 1.1em; border-left: 4px solid #e67e22; padding-left: 8px; }
+                .section { background: #fdfdfd; padding: 15px; border-radius: 8px; border: 1px solid #eee; }
+                
+                .furigana-text { font-size: 20px; line-height: 2.5; letter-spacing: 1px; }
+                ruby { ruby-align: center; ruby-position: over; }
+                rt { font-size: 0.55em; color: #e74c3c; font-weight: bold; transform: translateY(-10%); }
+                
+                .translation { color: #555; font-size: 16px; line-height: 1.8; }
+                .table-container { overflow-x: auto; }
+                table { width: 100%; border-collapse: collapse; min-width: 500px; }
+                th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: left; font-size: 15px; }
+                th { background-color: #f4f6f7; color: #2c3e50; font-weight: bold; white-space: nowrap; }
+                tr:nth-child(even) { background-color: #fafafa; }
+            </style>
+        </head>
+        <body>
+            <div class="nav-bar">
+                <span>📅 歷史紀錄：</span>
+                <input type="date" id="historyDate">
+                <button onclick="goToArchive()" class="nav-btn">查看</button>
+                <button onclick="goToHome()" class="nav-btn home-btn">🏠 今日首頁</button>
+            </div>
+            
+            <div id="content-wrapper">
+                
+            <div class="article-container">
+                <h2>[2026-02-28] 北海道で強い地震　停電と交通に影響</h2>
+                <div class="section-title">🔊 日本語朗読</div>
+                <div class="section furigana-text">27<ruby>日<rt>にち</rt></ruby><ruby>夜<rt>よ</rt></ruby>、<ruby>北海道<rt>ほっかいどう</rt></ruby>の<ruby>東部<rt>とうぶ</rt></ruby>でマグニチュード6.2の<ruby>地震<rt>じしん</rt></ruby>がありました。<ruby>震源<rt>しんげん</rt></ruby>の<ruby>深<rt>ふか</rt></ruby>さは<ruby>約<rt>やく</rt></ruby>40キロで、<ruby>沿岸<rt>えんがん</rt></ruby>では<ruby>一時的<rt>いちじてき</rt></ruby>に<ruby>停電<rt>ていでん</rt></ruby>が<ruby>発生<rt>はっせい</rt></ruby>しました。<ruby>幸<rt>さいわ</rt></ruby>い、<ruby>大<rt>おお</rt></ruby>きなけが<ruby>人<rt>にん</rt></ruby>はいませんでしたが、<ruby>一部<rt>いちぶ</rt></ruby>の<ruby>列車<rt>れっしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まり、<ruby>空港<rt>くうこう</rt></ruby>でも<ruby>遅<rt>おく</rt></ruby>れが<ruby>出<rt>で</rt></ruby>ました。<ruby>気象庁<rt>きしょうちょう</rt></ruby>は<ruby>今後<rt>こんご</rt></ruby>も<ruby>余震<rt>よしん</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>するよう<ruby>呼<rt>よ</rt></ruby>びかけています。</div>
+                <div class="section-title">🈶 中文翻譯</div>
+                <div class="section translation">27日晚間，北海道東部發生芮氏規模6.2強震。震央深度約40公里，部分沿海地區出現短暫停電。所幸並無重大傷亡，但部分列車停駛，機場也有延誤。日本氣象廳提醒民眾，未來仍需注意餘震。</div>
+                <div class="section-title">🈳 語彙與文型</div>
+                <div class="section table-container"><table><tr><th>語彙</th><th>停電（ていでん）</th><th>停電、電力中斷</th><th>台風で停電しました。</th></tr><tr><td>語彙</td><td>余震（よしん）</td><td>餘震</td><td>余震がまだ続いています。</td></tr><tr><td>語彙</td><td>呼びかける（よびかける）</td><td>呼籲、提醒</td><td>警察が注意を呼びかけました。</td></tr><tr><td>文型</td><td>〜ように</td><td>為了〜、使得〜</td><td>安全に運転するようにしてください。</td></tr><tr><td>文型</td><td>〜が〜（對比）</td><td>表示轉折「但〜」</td><td>雨が降りましたが、出かけました。</td></tr></table></div>
+            </div>
+            
+            <div class="article-container">
+                <h2>[2026-02-28] 春の味「いちごフェア」が各地で人気</h2>
+                <div class="section-title">🔊 日本語朗読</div>
+                <div class="section furigana-text">2<ruby>月<rt>がつ</rt></ruby><ruby>下旬<rt>げじゅん</rt></ruby>から<ruby>全国<rt>ぜんこく</rt></ruby>のカフェやデパートで「いちごフェア」が<ruby>始<rt>はじ</rt></ruby>まりました。<ruby>限定<rt>げんてい</rt></ruby>のいちごパフェやケーキ、ドリンクが<ruby>登場<rt>とうじょう</rt></ruby>し、<ruby>多<rt>おお</rt></ruby>くの<ruby>人<rt>ひと</rt></ruby>でにぎわっています。<ruby>新鮮<rt>しんせん</rt></ruby>で<ruby>甘<rt>あま</rt></ruby>いいちごは<ruby>春<rt>はる</rt></ruby>を<ruby>感<rt>かん</rt></ruby>じさせる<ruby>味<rt>あじ</rt></ruby>として<ruby>人気<rt>にんき</rt></ruby>があります。<ruby>期間<rt>きかん</rt></ruby>は3<ruby>月末<rt>がつまつ</rt></ruby>まで<ruby>行<rt>おこな</rt></ruby>われる<ruby>予定<rt>よてい</rt></ruby>です。</div>
+                <div class="section-title">🈶 中文翻譯</div>
+                <div class="section translation">從二月下旬開始，全日本各地的咖啡店與百貨公司陸續推出「草莓甜點祭」。限定版的草莓聖代、蛋糕與飲品吸引許多人前來品嚐。新鮮又香甜的草莓被視為春天到來的象徵。本次活動預計持續到三月底。</div>
+                <div class="section-title">🈳 語彙與文型</div>
+                <div class="section table-container"><table><tr><th>語彙</th><th>限定（げんてい）</th><th>限定、限期提供</th><th>期間限定のメニューです。</th></tr><tr><td>語彙</td><td>甘い（あまい）</td><td>甜的</td><td>このケーキはとても甘いです。</td></tr><tr><td>語彙</td><td>期間（きかん）</td><td>期間、期間內</td><td>イベントの期間は一週間です。</td></tr><tr><td>文型</td><td>〜として</td><td>作為〜、以〜的身分</td><td>日本代表として試合に出ます。</td></tr><tr><td>文型</td><td>〜ようです</td><td>看起來〜、似乎〜</td><td>春が来たようです。</td></tr></table></div>
+            </div>
+            
+            </div>
+
+            <script>
+                function getRepoRoot() { return window.location.pathname.includes('/archive/') ? '../' : './'; }
+                function goToArchive() {
+                    const date = document.getElementById('historyDate').value;
+                    if (!date) { alert("請先選擇要查看的日期！"); return; }
+                    window.location.href = getRepoRoot() + "archive/" + date + ".html";
+                }
+                function goToHome() { window.location.href = getRepoRoot() + "index.html"; }
+                
+                window.onload = function() {
+                    const url = window.location.href;
+                    const dateMatch = url.match(/archive\/(\d{4}-\d{2}-\d{2})\.html/);
+                    const dateInput = document.getElementById('historyDate');
+                    if (dateMatch) {
+                        dateInput.value = dateMatch[1];
+                    } else {
+                        const today = new Date();
+                        const tzOffset = today.getTimezoneOffset() * 60000;
+                        dateInput.value = (new Date(today - tzOffset)).toISOString().split('T')[0];
+                    }
+                }
+            </script>
+        </body>
+        </html>
+        
