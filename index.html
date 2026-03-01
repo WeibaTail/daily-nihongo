@@ -3,10 +3,17 @@
         <html lang="ja">
         <head>
             <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
             <title>每日日文閱讀</title>
             <style>
-                body { font-family: "Meiryo", "Yu Gothic", sans-serif; line-height: 1.6; padding: 15px; background-color: #f0f2f5; color: #333; margin: 0; }
+                body { font-family: "Meiryo", "Yu Gothic", sans-serif; line-height: 1.6; padding: 0; padding-top: 60px; background-color: #f0f2f5; color: #333; margin: 0; }
+                /* 置頂導覽列樣式 */
+                .nav-bar { position: fixed; top: 0; left: 0; right: 0; height: 50px; background: #2c3e50; color: white; display: flex; align-items: center; justify-content: center; padding: 0 10px; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+                .nav-bar input[type="date"] { padding: 5px; border-radius: 5px; border: none; outline: none; margin-left: 5px; font-family: inherit; }
+                .nav-btn { background: #3498db; color: white; border: none; padding: 6px 12px; margin-left: 8px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+                .home-btn { background: #e74c3c; }
+                
+                #content-wrapper { padding: 15px; }
                 .article-container { background: white; max-width: 800px; margin: 0 auto 30px auto; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
                 h2 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; margin-top: 0; }
                 .section-title { font-weight: bold; color: #e67e22; margin-top: 25px; margin-bottom: 10px; font-size: 1.1em; }
@@ -23,18 +30,68 @@
             </style>
         </head>
         <body>
-            
-            <div class="article-container">
-                <h2>北海道で強い地震　停電と交通に影響
-日付と時間：2026-02-28 09:00:00</h2>
-                <div class="section-title">🔊 日本語朗読</div>
-                <div class="section furigana-text"><ruby>27日夜<rt>にじゅうななにちよる</rt></ruby>、<ruby>北海道<rt>ほっかいどう</rt></ruby>の<ruby>東部<rt>とうぶ</rt></ruby>で<ruby>マグニチュ<rt>まぐにちゅ</rt></ruby>ー<ruby>ド6.2<rt>どろくてんに</rt></ruby>の<ruby>地震<rt>じしん</rt></ruby>がありました。<ruby>震源<rt>しんげん</rt></ruby>の<ruby>深<rt>ふか</rt></ruby>さは<ruby>約40キロ<rt>やくよんじゅっきろ</rt></ruby>で、<ruby>沿岸<rt>えんがん</rt></ruby>では<ruby>一時的<rt>いちじてき</rt></ruby>に<ruby>停電<rt>ていでん</rt></ruby>が<ruby>発生<rt>はっせい</rt></ruby>しました。<ruby>幸<rt>さいわ</rt></ruby>い、<ruby>大<rt>おお</rt></ruby>きなけが<ruby>人<rt>にん</rt></ruby>はいませんでしたが、<ruby>一部<rt>いちぶ</rt></ruby>の<ruby>列車<rt>れっしゃ</rt></ruby>が<ruby>止<rt>と</rt></ruby>まり、<ruby>空港<rt>くうこう</rt></ruby>でも<ruby>遅<rt>おく</rt></ruby>れが<ruby>出<rt>で</rt></ruby>ました。<ruby>気象庁<rt>きしょうちょう</rt></ruby>は<ruby>今後<rt>こんご</rt></ruby>も<ruby>余震<rt>よしん</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>するよう<ruby>呼<rt>よ</rt></ruby>びかけています。</div>
-                <div class="section-title">🈶 中文翻譯</div>
-                <div class="section translation">27日晚間，北海道東部發生芮氏規模6.2強震。震央深度約40公里，部分沿海地區出現短暫停電。所幸並無重大傷亡，但部分列車停駛，機場也有延誤。日本氣象廳提醒民眾，未來仍需注意餘震。</div>
-                <div class="section-title">🈳 語彙與文型</div>
-                <div class="section table-container"><table><tr><th>語彙</th><th>停電（ていでん）</th><th>停電、電力中斷</th><th>台風で停電しました。</th></tr><tr><td>語彙</td><td>余震（よしん）</td><td>餘震</td><td>余震がまだ続いています。</td></tr><tr><td>語彙</td><td>呼びかける（よびかける）</td><td>呼籲、提醒</td><td>警察が注意を呼びかけました。</td></tr><tr><td>文型</td><td>〜ように</td><td>為了〜、使得〜</td><td>安全に運転するようにしてください。</td></tr><tr><td>文型</td><td>〜が〜（對比）</td><td>表示轉折「但〜」</td><td>雨が降りましたが、出かけました。</td></tr></table></div>
+            <div class="nav-bar">
+                <span>📅 歷史紀錄：</span>
+                <input type="date" id="historyDate">
+                <button onclick="goToArchive()" class="nav-btn">查看</button>
+                <button onclick="goToHome()" class="nav-btn home-btn">🏠 今日首頁</button>
             </div>
             
+            <div id="content-wrapper">
+                
+            <div class="article-container">
+                <h2>[2026-03-01] イラン最高指導者殺害で中東緊張高まる</h2>
+                <div class="section-title">🔊 日本語朗読</div>
+                <div class="section furigana-text"><ruby>アメリカ<rt>あめりか</rt></ruby>と<ruby>イスラエル<rt>いすらえる</rt></ruby>が<ruby>イラン<rt>いらん</rt></ruby>に<ruby>大規模攻撃<rt>だいきぼくげき</rt></ruby>を<ruby>加<rt>くわ</rt></ruby>えました。<ruby>イスラエル当局によ<rt>いすらえ</rt></ruby>るとうきとうりょくに、<ruby>イラン<rt>いらん</rt></ruby>の<ruby>最高指導者アリ<rt>さいこうしどうしゃあり</rt></ruby>・<ruby>ハメネイ師<rt>はめねいし</rt></ruby>の<ruby>遺体<rt>はいたい</rt></ruby>が<ruby>発見<rt>はっけん</rt></ruby>されたそうです。この<ruby>攻撃<rt>こうげき</rt></ruby>で<ruby>中東<rt>ちゅうとう</rt></ruby>の<ruby>緊張<rt>きんちょう</rt></ruby>が<ruby>高<rt>たか</rt></ruby>まり、<ruby>イラン<rt>いらん</rt></ruby>は<ruby>報復<rt>ほうふく</rt></ruby>として<ruby>湾岸諸国<rt>わんがんしょこく</rt></ruby>に<ruby>ミサイル<rt>みさいる</rt></ruby>を<ruby>発射<rt>はっしゃ</rt></ruby>しました。<ruby>ドバイ<rt>どばい</rt></ruby>などで<ruby>爆発<rt>ばくはつ</rt></ruby>が<ruby>発生<rt>ぎじ、</rt></ruby>し<ruby>、死傷者<rt>しょうしゃ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ています。<ruby>国際社会<rt>こくさいしゃかい</rt></ruby>は<ruby>事態<rt>じたい</rt></ruby>の<ruby>悪化を懸念<rt>あっかにけんねん</rt></ruby>しています。</div>
+                <div class="section-title">🈶 中文翻譯</div>
+                <div class="section translation">美國和以色列對伊朗發動大規模攻擊。據以色列當局表示，伊朗最高領導人阿里·哈梅內伊的遺體已被發現。這次攻擊導致中東緊張局勢升級，伊朗以發射飛彈報復海灣國家，杜拜等地發生爆炸並造成死傷。國際社會對事態惡化深表憂慮。</div>
+                <div class="section-title">🈳 語彙與文型</div>
+                <div class="section table-container"><table><tr><th>種類</th><th>表現</th><th>意味</th><th>例文</th></tr><tr><td>語彙</td><td>攻撃（こうげき）</td><td>攻擊、襲擊</td><td>敵に攻撃した。</td></tr><tr><td>語彙</td><td>報復（ほうふく）</td><td>報復、反擊</td><td>敵に報復する。</td></tr><tr><td>語彙</td><td>懸念（けねん）</td><td>擔憂、懸念</td><td>戦争を懸念する。</td></tr><tr><td>語彙</td><td>当局（とうきょう）</td><td>當局、政府</td><td>当局が発表した。</td></tr><tr><td>文型</td><td>〜そうです</td><td>聽說〜、據說〜（傳聞）</td><td>遺体が発見されたそうです。</td></tr><tr><td>文型</td><td>〜によると〜</td><td>據〜說〜</td><td>当局によると遺体が見つかった。</td></tr></table></div>
+            </div>
+            
+            <div class="article-container">
+                <h2>[2026-03-01] 発酵食品が健康トレンドに</h2>
+                <div class="section-title">🔊 日本語朗読</div>
+                <div class="section furigana-text"><ruby>最近<rt>さいきん</rt></ruby>、<ruby>日本<rt>にほん</rt></ruby>で<ruby>発酵食品<rt>はっこうしょくひん</rt></ruby>が<ruby>人気<rt>にんき</rt></ruby>を<ruby>集<rt>あつ</rt></ruby>めています。<ruby>味噌<rt>みそ</rt></ruby>やヨーグルト、キムチなどの<ruby>食品<rt>しょくひん</rt></ruby>は<ruby>腸内環境<rt>ちょうないかんきょう</rt></ruby>を<ruby>整<rt>ととの</rt></ruby>え、<ruby>免疫力<rt>めんえきりょく</rt></ruby>を<ruby>高<rt>たか</rt></ruby>めると<ruby>言<rt>い</rt></ruby>われています。スーパーでは<ruby>新<rt>あたら</rt></ruby>しい<ruby>発酵<rt>はっこう</rt></ruby>ドリンクが<ruby>並<rt>なら</rt></ruby>び、<ruby>若<rt>わか</rt></ruby>い<ruby>人<rt>ひと</rt></ruby>たちが<ruby>日常的<rt>にちじょうてき</rt></ruby>に<ruby>取<rt>と</rt></ruby>り<ruby>入<rt>い</rt></ruby>れています。また、<ruby>家<rt>いえ</rt></ruby>で<ruby>簡単<rt>かんたん</rt></ruby>な<ruby>発酵食品<rt>はっこうしょくひん</rt></ruby>を<ruby>作<rt>つく</rt></ruby>るキットも<ruby>売<rt>う</rt></ruby>れ<ruby>筋<rt>すじ</rt></ruby>です。<ruby>健康志向<rt>けんこうしこう</rt></ruby>の<ruby>高<rt>たか</rt></ruby>まりで、<ruby>食生活<rt>しょくせいかつ</rt></ruby>が<ruby>変<rt>か</rt></ruby>わりつつあります。</div>
+                <div class="section-title">🈶 中文翻譯</div>
+                <div class="section translation">最近，日本發酵食品大受歡迎。味噌、優格、泡菜等食物據說能調節腸道環境並提升免疫力。超市上架了新型發酵飲料，年輕人已將其融入日常生活。此外，家用簡易發酵食品套組也熱賣。隨著健康意識高漲，飲食習慣正逐漸改變。</div>
+                <div class="section-title">🈳 語彙與文型</div>
+                <div class="section table-container"><table><tr><th>種類</th><th>表現</th><th>意味</th><th>例文</th></tr><tr><td>語彙</td><td>発酵（はっこう）</td><td>發酵、酵素作用</td><td>食品を発酵させる。</td></tr><tr><td>語彙</td><td>免疫力（めんえきりょく）</td><td>免疫力、抵抗力</td><td>免疫力を高める。</td></tr><tr><td>語彙</td><td>志向（しこう）</td><td>志向、傾向</td><td>健康志向の人。</td></tr><tr><td>語彙</td><td>取り入れる</td><td>採納、融入</td><td>習慣を取り入れる。</td></tr><tr><td>文型</td><td>〜と言われています</td><td>據說〜、被認為〜</td><td>効果が高いと言われています。</td></tr><tr><td>文型</td><td>〜つつあります</td><td>正在〜、逐漸〜</td><td>生活が変わりつつあります。</td></tr></table></div>
+            </div>
+            
+            </div>
+
+            <script>
+                function getRepoRoot() {
+                    const path = window.location.pathname;
+                    return path.includes('/archive/') ? '../' : './';
+                }
+                
+                function goToArchive() {
+                    const date = document.getElementById('historyDate').value;
+                    if (!date) { alert("請先選擇要查看的日期！"); return; }
+                    window.location.href = getRepoRoot() + "archive/" + date + ".html";
+                }
+                
+                function goToHome() {
+                    window.location.href = getRepoRoot() + "index.html";
+                }
+                
+                // 自動將日期選擇器設為今天的日期或網址上的日期
+                window.onload = function() {
+                    const url = window.location.href;
+                    const dateMatch = url.match(/archive\/(\d{4}-\d{2}-\d{2})\.html/);
+                    const dateInput = document.getElementById('historyDate');
+                    if (dateMatch) {
+                        dateInput.value = dateMatch[1];
+                    } else {
+                        const today = new Date();
+                        const tzOffset = today.getTimezoneOffset() * 60000;
+                        const localISOTime = (new Date(today - tzOffset)).toISOString().split('T')[0];
+                        dateInput.value = localISOTime;
+                    }
+                }
+            </script>
         </body>
         </html>
         
